@@ -1,0 +1,864 @@
+{
+  "name": "AI Lead & Customer Inquiry Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ai-lead-inquiry",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        16,
+        0
+      ],
+      "id": "1fa700e0-cda2-45c8-a298-3861417c9a9b",
+      "name": "Webhook",
+      "webhookId": "130fb7f9-628a-4b38-878f-3ef9bbfc7949"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM",
+          "mode": "list",
+          "cachedResultName": "AI Lead Management CRM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Customer Name": "={{ $json.customer_name }}",
+            "Email": "={{ $json.customer_email }}",
+            "Business": "={{ $json.business }}",
+            "Service": "={{ $json.service }}",
+            "Budget": "={{ $json.budget }}",
+            "Priority": "={{ $json.priority }}",
+            "Summary": "={{ $json.summary }}",
+            "Next Action": "={{ $json.next_action }}",
+            "Follow-up Email": "={{ $json.follow_up_email }}",
+            "Date": "={{ $json.analyzed_at }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Customer Name",
+              "displayName": "Customer Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Business",
+              "displayName": "Business",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service",
+              "displayName": "Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Next Action",
+              "displayName": "Next Action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Follow-up Email",
+              "displayName": "Follow-up Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1088,
+        -128
+      ],
+      "id": "fdfc657f-c7ec-449b-b67a-ddc5a41c0608",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fRJIAFAquR2dmqQS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM",
+          "mode": "list",
+          "cachedResultName": "AI Lead Management CRM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Customer Name": "={{ $json.customer_name }}",
+            "Email": "={{ $json.customer_email }}",
+            "Business": "={{ $json.business }}",
+            "Service": "={{ $json.service }}",
+            "Budget": "={{ $json.budget }}",
+            "Summary": "={{ $json.summary }}",
+            "Priority": "={{ $json.priority }}",
+            "Next Action": "={{ $json.next_action }}",
+            "Follow-up Email": "={{ $json.follow_up_email }}",
+            "Date": "={{ $json.analyzed_at }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Customer Name",
+              "displayName": "Customer Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Business",
+              "displayName": "Business",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service",
+              "displayName": "Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Next Action",
+              "displayName": "Next Action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Follow-up Email",
+              "displayName": "Follow-up Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1088,
+        64
+      ],
+      "id": "fa171460-e7a4-4485-9600-62bb45f324d7",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fRJIAFAquR2dmqQS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM",
+          "mode": "list",
+          "cachedResultName": "AI Lead Management CRM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F5ejMj0mVnbxd7yNiwlMqsR20wtj-77SneuAplPgTRM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Customer Name": "={{ $json.customer_name }}",
+            "Email": "={{ $json.customer_email }}",
+            "Business": "={{ $json.business }}",
+            "Service": "={{ $json.service }}",
+            "Budget": "={{ $json.budget }}",
+            "Priority": "={{ $json.priority }}",
+            "Summary": "={{ $json.summary }}",
+            "Next Action": "={{ $json.next_action }}",
+            "Follow-up Email": "={{ $json.follow_up_email }}",
+            "Date": "={{ $json.analyzed_at }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Customer Name",
+              "displayName": "Customer Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Business",
+              "displayName": "Business",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service",
+              "displayName": "Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Summary",
+              "displayName": "Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Next Action",
+              "displayName": "Next Action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Follow-up Email",
+              "displayName": "Follow-up Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1088,
+        272
+      ],
+      "id": "d761699a-972c-4f95-a7c8-b312e76a1d9b",
+      "name": "Append row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "fRJIAFAquR2dmqQS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-3.5-flash-lite",
+          "mode": "list",
+          "cachedResultName": "Gemini 3.5 Flash Lite"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert AI Lead Qualification Assistant.\n\nAnalyze this customer inquiry:\n\nName: {{ $json.body.name }}\nEmail: {{ $json.body.email }}\nBusiness: {{ $json.body.business }}\nService: {{ $json.body.service }}\nBudget: {{ $json.body.budget }}\nMessage: {{ $json.body.message }}\n\nClassify the lead as High, Medium, or Low.\n\nReturn valid JSON only:\n{\n  \"priority\": \"\",\n  \"customer_name\": \"\",\n  \"customer_email\": \"\",\n  \"business\": \"\",\n  \"service\": \"\",\n  \"budget\": \"\",\n  \"summary\": \"\",\n  \"next_action\": \"\",\n  \"follow_up_email\": \"\"\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "8a21d8f9-141f-4722-b6d0-8f444437463c",
+      "name": "Gemini AI - Lead Analysis",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NHoGCiEiFIAMUmNe",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.content?.parts?.[0]?.text\n  || $json.text\n  || $json.output\n  || \"\";\n\nconst cleaned = raw.replace(/```json|```/g, \"\").trim();\nconst lead = JSON.parse(cleaned);\n\nreturn {\n  json: {\n    ...lead,\n    analyzed_at: new Date().toISOString()\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        592,
+        0
+      ],
+      "id": "47749f25-5c0e-447d-a5b6-d69823cce5fa",
+      "name": "Code - Parse AI JSON"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 4
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.priority }}",
+                    "rightValue": "Low",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bb493915-7dc9-4d8a-8966-7f614d2230ed"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 4
+                },
+                "conditions": [
+                  {
+                    "id": "1139ca11-f2b6-4a7e-b1e5-63c3ed527b72",
+                    "leftValue": "={{ $json.priority }}",
+                    "rightValue": "Medium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 4
+                },
+                "conditions": [
+                  {
+                    "id": "67abdb74-5379-4b42-9139-4b47039fcec7",
+                    "leftValue": "={{ $json.priority }}",
+                    "rightValue": "High",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.5,
+      "position": [
+        816,
+        -16
+      ],
+      "id": "a1f2e3cf-f21e-40b3-80b4-862cf33809e1",
+      "name": "Switch - Lead Priority"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Regarding Your AI Chatbot Inquiry",
+        "message": "={{ $json['Follow-up Email'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        -128
+      ],
+      "id": "eaa29375-02bb-48bb-8810-5cd797d4be13",
+      "name": "Gmail - Low Priority CustomerEmail",
+      "webhookId": "1b827602-3c64-4d08-b899-f664ae6df9e7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_BUSINESS_EMAIL@example.com",
+        "subject": "New AI Lead Received",
+        "message": "={{ $('Code - Parse AI JSON').item.json.customer_name }} \n{{ $('Code - Parse AI JSON').item.json.customer_email }}\n{{ $('Code - Parse AI JSON').item.json.business }}\n{{ $('Code - Parse AI JSON').item.json.service }}\n{{ $('Code - Parse AI JSON').item.json.budget }}\n{{ $('Code - Parse AI JSON').item.json.priority }}\n{{ $('Code - Parse AI JSON').item.json.summary }}\n{{ $('Code - Parse AI JSON').item.json.next_action }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1632,
+        -128
+      ],
+      "id": "1add5286-1ebe-4252-8d57-3b6ada0db789",
+      "name": "Gmail - Owner Notification",
+      "webhookId": "fd7274b8-ad77-4352-a92b-d73b3241b2b8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Medium Priority Lead - Follow-up Required",
+        "message": "={{ $json['Follow-up Email'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        96
+      ],
+      "id": "c776ae99-eec4-417e-ae94-232f72687193",
+      "name": "Gmail - Medium PriorityNotification",
+      "webhookId": "1777d662-57bc-48ec-abc2-ba81ba873732",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "=HIGH PRIORITY LEAD - {{ $('Code - Parse AI JSON').item.json.customer_name }}",
+        "message": "=HIGH PRIORITY LEAD  Customer: {{ $('Code - Parse AI JSON').item.json.customer_name }} Email: {{ $('Code - Parse AI JSON').item.json.customer_email }} Business: {{ $('Code - Parse AI JSON').item.json.business }} Service: {{ $('Code - Parse AI JSON').item.json.service }} Budget: {{ $('Code - Parse AI JSON').item.json.budget }}  Summary: {{ $('Code - Parse AI JSON').item.json.summary }}  Next Action: {{ $('Code - Parse AI JSON').item.json.next_action }}  ACTION REQUIRED: Please contact this customer as soon as possible.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1392,
+        320
+      ],
+      "id": "4560cd00-cc34-4f36-b4f2-17c4a6f589bd",
+      "name": "Gmail - High PriorityNotification",
+      "webhookId": "8ac5e36c-e2d6-4c99-8a44-b55c39a3a4e1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_BUSINESS_EMAIL@example.com",
+        "subject": "=MEDIUM PRIORITY LEAD - {{ $('Code - Parse AI JSON').item.json.customer_name }}",
+        "message": "=MEDIUM PRIORITY LEAD  Customer: {{ $('Code - Parse AI JSON').item.json.customer_name }} Email: {{ $('Code - Parse AI JSON').item.json.customer_email }} Business: {{ $('Code - Parse AI JSON').item.json.business }} Service: {{ $('Code - Parse AI JSON').item.json.service }} Budget: {{ $('Code - Parse AI JSON').item.json.budget }}  Summary: {{ $('Code - Parse AI JSON').item.json.summary }}  Next Action: {{ $('Code - Parse AI JSON').item.json.next_action }}  Please review this lead and schedule a follow-up.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1616,
+        96
+      ],
+      "id": "12c89e86-61e7-4599-8bec-dd182537741b",
+      "name": "Gmail - Owner Notification1",
+      "webhookId": "109a9ea7-df3b-4bb6-9432-88c08cc5e4fd",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "YOUR_BUSINESS_EMAIL@example.com",
+        "subject": "=HIGH PRIORITY LEAD - {{ $('Code - Parse AI JSON').item.json.customer_name }}",
+        "message": "=HIGH PRIORITY LEAD  Customer: {{ $('Code - Parse AI JSON').item.json.customer_name }} Email: {{ $('Code - Parse AI JSON').item.json.customer_email }} Business: {{ $('Code - Parse AI JSON').item.json.business }} Service: {{ $('Code - Parse AI JSON').item.json.service }} Budget: {{ $('Code - Parse AI JSON').item.json.budget }}  Summary: {{ $('Code - Parse AI JSON').item.json.summary }}  Next Action: {{ $('Code - Parse AI JSON').item.json.next_action }}  URGENT: Please contact this customer as soon as possible.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1616,
+        320
+      ],
+      "id": "454b44bf-7ee2-4ea8-9429-a8ac9aafad06",
+      "name": "Gmail - Owner Notification2",
+      "webhookId": "2469ebbf-7b59-4ece-a326-21fab097e30e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Sap2pMzyEnTLAOLV",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gemini AI - Lead Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Low Priority CustomerEmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini AI - Lead Analysis": {
+      "main": [
+        [
+          {
+            "node": "Code - Parse AI JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Parse AI JSON": {
+      "main": [
+        [
+          {
+            "node": "Switch - Lead Priority",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch - Lead Priority": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append row in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail - Low Priority CustomerEmail": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Owner Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Medium PriorityNotification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail - Medium PriorityNotification": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Owner Notification1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "Gmail - High PriorityNotification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail - High PriorityNotification": {
+      "main": [
+        [
+          {
+            "node": "Gmail - Owner Notification2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "53e6e716-df1b-4005-89b2-b4260f23e20e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "29cc903fad2d28f8cb797c101ac7dd9f0a55925aac2062c5df09f7fdc5f7679f"
+  },
+  "nodeGroups": [],
+  "id": "dyQpFFM6PdxM80Qt",
+  "tags": []
+}
