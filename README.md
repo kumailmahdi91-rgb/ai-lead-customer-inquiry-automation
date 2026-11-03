@@ -49,7 +49,18 @@ The goal of this project is to help businesses automate lead qualification, orga
 
 - GitHub: https://github.com/kumailmahdi91-rgb
 - LinkedIn: https://www.linkedin.com/in/kumail-mahdi/
-
 ---
-
 *Built with n8n, Gemini AI, Google Sheets, and Gmail.*
+## Project Screenshots
+
+### Complete Workflow
+![Complete Workflow](01-complete-workflow.png.png)
+
+### Successful Execution
+![Successful Execution](02-successful-execution.png.png)
+
+### Google Sheets CRM
+![Google Sheets CRM](03-google-sheets-crm.png.png)
+
+### Gmail Notification
+![Gmail Notification](04-gmail-notification.png.png)
